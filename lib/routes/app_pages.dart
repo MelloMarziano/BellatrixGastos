@@ -13,6 +13,7 @@ import '../screens/login/login_screen.dart';
 import 'app_routes.dart';
 import '../screens/about/about_binding.dart';
 import '../screens/about/about_screen.dart';
+import 'auth_middleware.dart';
 
 class AppPages {
   static final List<GetPage> pages = [
@@ -30,22 +31,26 @@ class AppPages {
       name: AppRoutes.MAIN,
       page: () => MainScreen(),
       binding: MainBinding(),
+      middlewares: [AuthMiddleware()],
     ),
 
     GetPage(
       name: AppRoutes.HOME,
       page: () => HomeScreen(),
       binding: HomeBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: AppRoutes.CATEGORIA,
       page: () => CategoriaScreen(),
       binding: CategoriaBinding(),
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: AppRoutes.ABOUT,
       page: () => const AboutScreen(),
       binding: AboutBinding(),
+      middlewares: [AuthMiddleware()],
     ),
   ];
 }
